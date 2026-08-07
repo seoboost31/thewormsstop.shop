@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Worm Stop — Live Bait, Tackle &amp; Fishing Gear</title>
+<meta name="description" content="Fresh live bait, tackle, and local fishing know-how. Nightcrawlers, red wigglers, minnows, and everything else you forgot in the truck.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#2F4A3C;
+    --denim:#3B5166;
+    --rust:#B5601E;
+    --cream:#F3EEDD;
+    --bark:#2A2117;
+    --paper:#F3EEDD;
+    --ink:#221D14;
+    --ink-60: rgba(34,29,20,0.62);
+    --ink-30: rgba(34,29,20,0.26);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Nunito Sans', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Oswald', sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.01em;}
+  .mono{
+    font-family:'Space Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-size:0.7rem;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,60px);}
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- signature: wriggle-line rule ---------- */
+  .wriggle-rule{
+    width:100%; height:22px;
+    background-repeat:repeat-x; background-size:44px 22px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'><path d='M0 11 Q6 2 12 11 T24 11 T36 11 T44 11' fill='none' stroke='%23B5601E' stroke-width='2' stroke-linecap='round'/></svg>");
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(243,238,221,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(34,29,20,0.14);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,60px);}
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Oswald',sans-serif; font-size:1.15rem; text-transform:uppercase; letter-spacing:0.02em;}
+  .logo-mark{width:30px; height:30px;}
+  .logo em{font-style:normal; color:var(--rust);}
+  .nav-links{display:flex; gap:26px; align-items:center;}
+  .nav-links a{font-family:'Space Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.1em; position:relative; padding-bottom:3px;}
+  .nav-links a::after{content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--rust); transition:width .3s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .cart-pill{
+    background:var(--forest); color:var(--cream);
+    padding:9px 18px; font-family:'Space Mono',monospace; font-size:0.65rem;
+    text-transform:uppercase; letter-spacing:0.1em;
+  }
+  .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer;}
+  .nav-toggle span{width:22px; height:1.5px; background:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; min-height:94vh;
+    display:flex; align-items:center;
+    padding-top:110px;
+    background:var(--forest); color:var(--cream);
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0; opacity:0.1;
+    background-repeat:repeat;
+    background-size:88px 44px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='88' height='44' viewBox='0 0 88 44'><path d='M0 22 Q12 4 24 22 T48 22 T72 22 T88 22' fill='none' stroke='%23F3EEDD' stroke-width='1'/></svg>");
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .badge-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--rust); color:var(--rust);
+    padding:7px 14px; margin-bottom:26px;
+    font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.13em; text-transform:uppercase;
+  }
+  .hero h1{
+    font-size:clamp(2.8rem,7vw,5.6rem); line-height:1.02;
+  }
+  .hero h1 span{color:var(--rust);}
+  .hero-sub{margin-top:28px; max-width:480px; font-size:1.06rem; line-height:1.75; color:rgba(243,238,221,0.75); font-family:'Nunito Sans',sans-serif; text-transform:none;}
+  .hero-cta{margin-top:40px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:15px 28px;
+    font-family:'Space Mono',monospace; font-size:0.7rem;
+    text-transform:uppercase; letter-spacing:0.12em;
+    background:var(--rust); color:var(--cream); border:1px solid var(--rust);
+    transition:background .3s ease, color .3s ease;
+  }
+  .btn:hover{background:transparent; color:var(--rust);}
+  .btn-line{background:transparent; color:var(--cream); border:1px solid rgba(243,238,221,0.35);}
+  .btn-line:hover{background:rgba(243,238,221,0.1);}
+
+  .hero-facts{
+    margin-top:70px; padding-top:26px; border-top:1px solid rgba(243,238,221,0.16);
+    display:flex; gap:clamp(28px,6vw,60px); flex-wrap:wrap;
+  }
+  .fact-num{font-family:'Oswald',sans-serif; font-size:1.7rem; color:var(--rust);}
+  .fact-label{margin-top:4px; color:rgba(243,238,221,0.55); font-size:0.66rem; font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.06em;}
+
+  /* ---------- section shell ---------- */
+  section{padding:110px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:36px; margin-bottom:58px; flex-wrap:wrap;}
+  .section-head .mono{color:var(--rust); display:block; margin-bottom:12px;}
+  .section-head h2{font-size:clamp(2rem,4.2vw,3rem); max-width:560px; color:var(--forest);}
+  .section-head p{max-width:320px; color:var(--ink-60); line-height:1.7; font-size:0.94rem; font-family:'Nunito Sans',sans-serif;}
+
+  /* ---------- shop ---------- */
+  .shop{background:var(--paper);}
+  .p-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(34,29,20,0.14);}
+  .p-card{background:var(--paper); padding:32px 24px; transition:background .3s ease;}
+  .p-card:hover{background:#EAE2C9;}
+  .p-thumb{
+    aspect-ratio:1/1; background:var(--forest);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }
+  .p-thumb svg{width:52%;}
+  .p-title{font-family:'Oswald',sans-serif; font-size:1.05rem; margin-bottom:6px; text-transform:uppercase;}
+  .p-desc{font-size:0.84rem; color:var(--ink-60); line-height:1.6; margin-bottom:8px;}
+  .p-price{font-family:'Space Mono',monospace; font-size:0.82rem; color:var(--rust);}
+
+  /* ---------- story ---------- */
+  .story{background:var(--bark); color:var(--cream);}
+  .story-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;}
+  .story .mono{color:var(--rust);}
+  .story h2{font-size:clamp(2rem,4.2vw,3rem); margin:18px 0 22px;}
+  .story p{color:rgba(243,238,221,0.72); line-height:1.85; font-size:1.02rem; margin-bottom:18px; font-family:'Nunito Sans',sans-serif; text-transform:none;}
+  .story-figure{background:#332617; padding:34px; border:1px solid rgba(243,238,221,0.14);}
+  .story-quote{font-family:'Oswald',sans-serif; font-size:1.25rem; line-height:1.4; text-transform:uppercase;}
+  .story-quote span{display:block; margin-top:16px; font-family:'Space Mono',monospace; font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--rust); font-weight:400;}
+
+  /* ---------- freshness process ---------- */
+  .process{background:var(--paper);}
+  .pr-list{border-top:1px solid rgba(34,29,20,0.16);}
+  .pr-item{
+    display:grid; grid-template-columns:70px 1fr 1fr; gap:30px;
+    padding:30px 0; border-bottom:1px solid rgba(34,29,20,0.16); align-items:start;
+  }
+  .pr-num{font-family:'Oswald',sans-serif; font-size:1.3rem; color:var(--forest);}
+  .pr-item h3{font-size:1.15rem; margin-bottom:6px; color:var(--forest); text-transform:uppercase;}
+  .pr-item p{color:var(--ink-60); font-size:0.9rem; line-height:1.7; font-family:'Nunito Sans',sans-serif;}
+
+  /* ---------- band ---------- */
+  .band{background:var(--denim); color:var(--cream); padding:90px 0; text-align:center;}
+  .band h2{font-size:clamp(1.7rem,4vw,2.5rem); max-width:740px; margin:0 auto 20px; text-transform:none; font-weight:500;}
+  .band .mono{color:var(--rust); display:block; margin-top:16px;}
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--paper);}
+  .visit-grid{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(34,29,20,0.14);}
+  .visit-card{background:var(--paper); padding:44px 36px;}
+  .visit-card h3{font-size:1.2rem; margin-bottom:20px; color:var(--forest);}
+  .hour-row{display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px solid rgba(34,29,20,0.12); font-size:0.92rem; font-family:'Nunito Sans',sans-serif;}
+  .hour-row:last-child{border-bottom:none;}
+  .hour-row span:first-child{color:var(--ink-60);}
+
+  /* ---------- newsletter ---------- */
+  .signup{background:var(--paper);}
+  .signup-box{
+    background:var(--rust); color:var(--cream);
+    padding:clamp(44px,7vw,80px);
+    display:grid; grid-template-columns:1.2fr 1fr; gap:44px; align-items:center;
+  }
+  .signup-box h2{font-size:clamp(1.9rem,4.2vw,2.6rem); margin-bottom:14px;}
+  .signup-box p{color:rgba(243,238,221,0.85); line-height:1.7; max-width:400px; font-family:'Nunito Sans',sans-serif; text-transform:none;}
+  .signup-form{display:flex; gap:0; border-bottom:1px solid rgba(243,238,221,0.4); padding-bottom:12px;}
+  .signup-form input{
+    flex:1; background:transparent; border:none; outline:none;
+    color:var(--cream); font-family:'Nunito Sans',sans-serif; font-size:1rem;
+  }
+  .signup-form input::placeholder{color:rgba(243,238,221,0.5);}
+  .signup-form button{
+    background:none; border:none; color:var(--cream);
+    font-family:'Space Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em;
+    cursor:pointer; padding-left:16px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{background:var(--forest); color:rgba(243,238,221,0.6); padding:64px 0 26px;}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:36px; padding-bottom:44px;}
+  .foot-brand .logo{color:var(--cream); margin-bottom:14px;}
+  .foot-brand p{font-size:0.85rem; line-height:1.7; max-width:270px; font-family:'Nunito Sans',sans-serif;}
+  .foot-col .mono{color:var(--rust); display:block; margin-bottom:16px;}
+  .foot-col a{display:block; font-size:0.85rem; margin-bottom:9px; color:rgba(243,238,221,0.65); font-family:'Nunito Sans',sans-serif;}
+  .foot-col a:hover{color:var(--cream);}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:22px; border-top:1px solid rgba(243,238,221,0.16); font-size:0.76rem;}
+
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .nav-toggle{display:flex;}
+    .p-grid{grid-template-columns:repeat(2,1fr);}
+    .story-grid{grid-template-columns:1fr;}
+    .pr-item{grid-template-columns:50px 1fr;}
+    .pr-item p{grid-column:2/3;}
+    .visit-grid{grid-template-columns:1fr;}
+    .signup-box{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .p-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" fill="#2F4A3C"/>
+        <path d="M9 24 Q14 12 20 24 T31 24" fill="none" stroke="#B5601E" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      the worm <em>stop</em>
+    </div>
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#story">Our Story</a>
+      <a href="#process">Freshness</a>
+      <a href="#visit">Visit</a>
+      <a href="#" class="cart-pill">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <div class="badge-tag">Bait fridge stocked daily</div>
+    <h1>Never hit the water<br>with an <span>empty cup.</span></h1>
+    <p class="hero-sub">Live bait pulled fresh, tackle that actually gets used, and a counter guy who'll tell you where the crappie are biting this week. We open before the lake wakes up.</p>
+    <div class="hero-cta">
+      <a href="#shop" class="btn">Shop Bait &amp; Tackle</a>
+      <a href="#visit" class="btn btn-line">Store Hours</a>
+    </div>
+    <div class="hero-facts">
+      <div><div class="fact-num">5am</div><div class="fact-label">Daily opening time</div></div>
+      <div><div class="fact-num">6</div><div class="fact-label">Bait varieties, always in stock</div></div>
+      <div><div class="fact-num">30+</div><div class="fact-label">Years on this corner</div></div>
+      <div><div class="fact-num">Fresh</div><div class="fact-label">Never frozen, ever</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wriggle-rule"></div>
+
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="mono">In stock today</span>
+        <h2>Bait, tackle, and the stuff you forgot</h2>
+      </div>
+      <p>Call ahead for large orders — we hold bait for regulars heading out before we open.</p>
+    </div>
+    <div class="p-grid reveal">
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><path d="M15 30 Q22 15 30 30 T45 30" stroke="#F3EEDD" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="p-title">Nightcrawlers</div>
+        <div class="p-desc">Dozen, packed in fresh bedding.</div>
+        <div class="p-price">$5.50</div>
+      </div>
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><path d="M12 30 Q18 20 24 30 Q30 20 36 30 Q42 20 48 30" stroke="#F3EEDD" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="p-title">Red Wigglers</div>
+        <div class="p-desc">Panfish favorite, small container.</div>
+        <div class="p-price">$4.00</div>
+      </div>
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><ellipse cx="30" cy="30" rx="14" ry="8" fill="#F3EEDD" opacity="0.85"/></svg></div>
+        <div class="p-title">Minnows</div>
+        <div class="p-desc">Sold by the dozen from the tank up front.</div>
+        <div class="p-price">$6.00</div>
+      </div>
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><rect x="20" y="16" width="20" height="28" rx="2" fill="#F3EEDD" opacity="0.85"/></svg></div>
+        <div class="p-title">Leeches</div>
+        <div class="p-desc">Walleye go-to, kept in cold water tanks.</div>
+        <div class="p-price">$7.00</div>
+      </div>
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><path d="M16 44 L44 16" stroke="#F3EEDD" stroke-width="3"/><circle cx="44" cy="16" r="4" fill="#B5601E"/></svg></div>
+        <div class="p-title">Tackle Basics</div>
+        <div class="p-desc">Hooks, weights, bobbers — the wall by the register.</div>
+        <div class="p-price">from $2.00</div>
+      </div>
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><ellipse cx="30" cy="30" rx="16" ry="6" fill="#F3EEDD" opacity="0.85"/><circle cx="42" cy="30" r="2" fill="#221D14"/></svg></div>
+        <div class="p-title">Lures &amp; Jigs</div>
+        <div class="p-desc">A wall of local favorites, restocked by what's biting.</div>
+        <div class="p-price">from $3.50</div>
+      </div>
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><rect x="14" y="20" width="32" height="20" rx="2" fill="#F3EEDD" opacity="0.85"/></svg></div>
+        <div class="p-title">Coolers &amp; Bait Buckets</div>
+        <div class="p-desc">Insulated bait buckets that actually keep the water cold.</div>
+        <div class="p-price">from $9.00</div>
+      </div>
+      <div class="p-card">
+        <div class="p-thumb"><svg viewBox="0 0 60 60" fill="none"><path d="M20 40 L40 20" stroke="#F3EEDD" stroke-width="3"/><path d="M20 20 L40 40" stroke="#F3EEDD" stroke-width="3"/></svg></div>
+        <div class="p-title">Fishing License</div>
+        <div class="p-desc">State licenses issued at the counter, no line, no app.</div>
+        <div class="p-price">varies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="reveal">
+      <span class="mono">Since 1991</span>
+      <h2>Same corner, same fridge, three owners</h2>
+      <p>The Worm Stop has sat on the same corner by the boat launch for over thirty years — started by a guy who got tired of driving forty minutes for bait before sunrise, and figured half the lake felt the same way.</p>
+      <p>We've changed hands twice since, but the rule hasn't: bait gets checked every morning, and anything that's not lively gets pulled. If you've got a bad cup of worms, we want to hear about it.</p>
+      <a href="#shop" class="btn btn-line" style="color:var(--cream); border-color:rgba(243,238,221,0.35);">See What's In Stock</a>
+    </div>
+    <div class="story-figure reveal">
+      <div class="story-quote">"We don't sell what we wouldn't fish with ourselves."<span>— Painted on the shop wall since 1991</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="mono">How we keep it fresh</span>
+        <h2>Three checks, every single morning</h2>
+      </div>
+      <p>Bait is only as good as the fridge it came from — here's what happens before the doors open.</p>
+    </div>
+    <div class="pr-list reveal">
+      <div class="pr-item">
+        <div class="pr-num">01</div>
+        <h3>Overnight temp check</h3>
+        <p>Every cooler and tank gets checked first thing — bait that's warmed up overnight doesn't go on the shelf.</p>
+      </div>
+      <div class="pr-item">
+        <div class="pr-num">02</div>
+        <h3>Bedding &amp; water change</h3>
+        <p>Worm bedding and minnow tank water get refreshed daily, not just topped off.</p>
+      </div>
+      <div class="pr-item">
+        <div class="pr-num">03</div>
+        <h3>Live count</h3>
+        <p>We physically check activity in each container — anything sluggish gets pulled before it reaches the counter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap reveal">
+    <h2>"Been buying nightcrawlers here since I was a kid with my dad. Still the only bait shop I trust before 6am."</h2>
+    <span class="mono">— T. Ruiz, regular customer</span>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="mono">Find us</span>
+        <h2>Hours &amp; location</h2>
+      </div>
+      <p>Two minutes from the public boat launch, right off the main road.</p>
+    </div>
+    <div class="visit-grid reveal">
+      <div class="visit-card">
+        <h3>Hours</h3>
+        <div class="hour-row"><span>Mon – Fri</span><span>5:00am – 7:00pm</span></div>
+        <div class="hour-row"><span>Saturday</span><span>4:30am – 7:00pm</span></div>
+        <div class="hour-row"><span>Sunday</span><span>4:30am – 5:00pm</span></div>
+        <div class="hour-row"><span>Ice season</span><span>Hours shift, call ahead</span></div>
+      </div>
+      <div class="visit-card">
+        <h3>Getting here</h3>
+        <div class="hour-row"><span>Address</span><span>12 Lakeshore Landing Rd</span></div>
+        <div class="hour-row"><span>Parking</span><span>Free lot, trailer space too</span></div>
+        <div class="hour-row"><span>Boat launch</span><span>0.4 miles down the road</span></div>
+        <div class="hour-row"><span>Phone orders</span><span>Held until noon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="wrap">
+    <div class="signup-box reveal">
+      <div>
+        <h2>Get the weekly bite report</h2>
+        <p>What's biting, what's in stock, and any early closures — one short email a week, straight from the counter.</p>
+      </div>
+      <form class="signup-form" onsubmit="return false;">
+        <input type="email" placeholder="you@example.com" required>
+        <button type="submit">Join →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">the worm <em style="font-style:normal;color:var(--rust);">stop</em></div>
+        <p>Fresh live bait and tackle, open before sunrise, two minutes from the boat launch.</p>
+      </div>
+      <div class="foot-col">
+        <span class="mono">Shop</span>
+        <a href="#shop">Live bait</a>
+        <a href="#shop">Tackle</a>
+        <a href="#shop">Licenses</a>
+      </div>
+      <div class="foot-col">
+        <span class="mono">About</span>
+        <a href="#story">Our story</a>
+        <a href="#process">Freshness process</a>
+        <a href="#signup">Bite report</a>
+      </div>
+      <div class="foot-col">
+        <span class="mono">Visit</span>
+        <a href="#visit">Hours</a>
+        <a href="#visit">Directions</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 The Worm Stop. Bait &amp; tackle since 1991.</span>
+      <span>thewormsstop.shop</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle?.addEventListener('click', ()=>{
+    const open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    links.style.cssText += open ? '' : 'position:fixed;top:64px;left:0;right:0;background:#F3EEDD;flex-direction:column;padding:24px;gap:18px;border-bottom:1px solid rgba(34,29,20,0.12);';
+  });
+</script>
+
+</body>
+</html>
